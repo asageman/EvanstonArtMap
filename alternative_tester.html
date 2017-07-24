@@ -1,0 +1,171 @@
+<html>
+<head>
+  <title>A Leaflet map!</title>
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
+  <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+  <style>
+    #map{ height: 100% }
+    #picture { width: 100% }
+  </style>
+</head>
+<body>
+
+  <div id="map"></div>
+
+  <script>
+
+  // initialize the map
+  var map = L.map('map').setView([-41.2864603, 174.77623600000004], 5);
+
+  // load a tile layer
+  L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+    {
+      attribution: 'Tiles by <a href="https://www.openstreetmap.org/#map=7/-41.237/174.683</a>',
+}).addTo(map);
+
+  // points
+  markers = [
+  {
+    "website": "https://en.wikipedia.org/wiki/Auckland",
+    "name": "Auckland",
+    "url": "https://farm1.staticflickr.com/416/31821738383_719955f405_o_d.jpg",
+    "lat": -36.854065,
+    "lng": 174.779877,
+    "text": "We landed in Auckland and began exploring its lush parks to try and ward off our jet lag.  In that hazy state of mind the gnarled tendrils of the sprawling trees seemed whimsical in the morning light."
+  },
+  {
+    "website": "https://en.wikipedia.org/wiki/Firth_of_Thames",
+    "name": "Firth of Thames",
+    "url": "https://farm1.staticflickr.com/605/31821740993_a24ee02919_o_d.jpg",
+    "lat": -37.13832,
+    "lng": 175.54011,
+    "text": "The first days in New Zealand were slow and reflective.  This feeling was inspired by the wet tangles of the bush and the misty gray waters of the Firth of Thames.  One day we walked down to the beach and meandered among the smooth stones, here we built a rock tower.  In this image the wet balanced stones seem to add to the deep mystique of the place."
+  },
+  {
+    "website": "https://en.wikipedia.org/wiki/Raglan,_New_Zealand",
+    "name": "Raglan",
+    "url": "https://farm1.staticflickr.com/350/32480433262_f2e389f0e9_o_d.jpg",
+    "lat": -37.801406,
+    "lng": 174.871795,
+    "text": "The expanse of the ocean at Raglan was breathtaking.  After days of winding green valleys and wet fern-filled bush the dry open expanse of these beaches made us giddy.  High up on the hills above the rolling surf we basked in the warm sunlight and looked out to the western horizon."
+  },
+  {
+    "website": "https://en.wikipedia.org/wiki/Lake_Taupo",
+    "name": "Lake Taupo",
+    "url": "https://farm1.staticflickr.com/574/32497795122_6bdf7d2181_o_d.jpg",
+    "lat": -38.791557,
+    "lng": 175.915039,
+    "text": "Near Lake Taupo we visited this sacred river.  This is place full of power.  As the raging ice-colored water charges down this shoot between the rocks it mesmerizes any onlookers. The turning and rushing of the frothy water is like watching a battle or a dance, it feels like an etherial illusion."
+  },
+  {
+    "website": "https://en.wikipedia.org/wiki/Turangi",
+    "name": "Turangi Marae",
+    "url": "https://farm1.staticflickr.com/421/32633778155_68140eb452_o_d.jpg",
+    "lat": -38.989871,
+    "lng": 175.808749,
+    "text": "Here are our shoes on the porch of the Marae.  We were so fortunate to have been able to stay at this Marae with the amazing people to whom it belongs because it is the sacred space of their ancestors.  The empty shoes in this picture represent a lesson they taught us; that the spirits of our ancestors are always with us."
+  },
+  {
+    "website": "https://en.wikipedia.org/wiki/Tongariro_National_Park",
+    "name": "Tongariro National Park",
+    "url": "https://farm1.staticflickr.com/630/31821824063_2667b702f9_o_d.jpg",
+    "lat": -39.272709,
+    "lng": 175.5802278,
+    "text": "We spent hours tramping through scrubby burnt-umber brush until we finally reached the ridge overlooking this glacial lake.  Its lapis water fading into pearly gray looked like a cloudy jewel cradled in the tawny folds of Ruapehu's foothills."
+  },
+  {
+    "website": "https://en.wikipedia.org/wiki/Whanganui",
+    "name": "Whanganui",
+    "url": "https://farm1.staticflickr.com/255/32511413531_2def2baa0a_o_d.jpg",
+    "lat": -39.93333,
+    "lng": 175.05,
+    "text": "I was taken with this place that smelled of rain and orange blossoms.  I walked through the wet grass feeling life under my bare feet.  I loved to pick the oranges, breaking their peel to inhale the sweetness of their scent. I walked in circles around my clothes rustling in the wind, I felt new."
+  },
+  {
+    "website": "https://en.wikipedia.org/wiki/Wellington",
+    "name": "Wellington",
+    "url": "https://farm1.staticflickr.com/403/31821870913_28afe2ce1e_o_d.jpg",
+    "lat": -41.2833322,
+    "lng": 174.83333,
+    "text": "It was a perfect day in Wellington, the southern sun was bright.  We climbed to the summit of Mt. Victoria and gazed down at the city hugging the bay.  I looked down and saw a girl and boy drawing Wellington, they were as taken by the city as I was."
+  },
+  {
+    "website": "https://en.wikipedia.org/wiki/Otaki,_New_Zealand",
+    "name": "Otaki",
+    "url": "https://farm1.staticflickr.com/603/31821876053_c6662c9774_o_d.jpg",
+    "lat": -40.76059,
+    "lng": 175.15602,
+    "text": "The river at Otaki was quiet and green.  We swam in the deep pools and lay out on the stoney beaches.  There was peace in that place, the world could not reach us there."
+  },
+  {
+    "website": "https://en.wikipedia.org/wiki/Christchurch",
+    "name": "Christchurch",
+    "url": "https://farm1.staticflickr.com/556/31821878313_dbe56a5f45_o_d.jpg",
+    "lat": -43.53205,
+    "lng": 172.63623,
+    "text": "The road to Christchurch was a long one, seven hours winding through deep cut valleys with ivory-white waterfalls, through misty forests of tall black-barked trees and across great plains with emerald grasses that swept back to the silent, mysterious hills in the distance."
+  },
+  {
+    "website": "https://en.wikipedia.org/wiki/Aoraki_/_Mount_Cook",
+    "name": "Aoraki (Mt. Cook)",
+    "url": "https://farm1.staticflickr.com/485/31821882073_698d295f85_o_d.jpg",
+    "lat": -43.73505,
+    "lng": 170.09784,
+    "text": "I feel that there are no words truly able to describe the majesty of Aoraki.  As we drove across the massive valley floor we were intoxicated by the beauty and the power of this place.  It felt impossible.  We were so overcome that we stopped and fell to the ground drinking in everything with our eyes until we felt fulfilled, grounded, connected."
+  },
+  {
+    "website": "http://www.newzealand.com/us/lake-wanaka/",
+    "name": "Wanaka",
+    "url": "https://farm1.staticflickr.com/318/31821897883_bceae58c79_o_d.jpg",
+    "lat": -44.70318,
+    "lng": 169.13210,
+    "text": "We saw a thin waterfall tumbling down a mountain from afar and we decided to try to find it.  We found no way to get to it, but on the way we found ourselves in this valley.  We stopped and looked around and realized it was something out of a fairy tail.  The sweet wild roses, the meadow of daisies, and the solemn misty mountains in the distance."
+  },
+  {
+    "website": "https://www.queenstownnz.co.nz/",
+    "name": "Queenstown",
+    "url": "https://farm1.staticflickr.com/445/31821748103_e22b4d7e6d_o_d.jpg",
+    "lat": -45.03116,
+    "lng": 168.66264,
+    "text": "It was our last day of adventuring and we found ourselves in Queenstown.  On that beautiful morning we took a ride up the gondola to say a last goodbye to this magnificent country.  It a was bittersweet departure; we are immensely thankful to have been so welcomed by Aotearoa."
+  },
+  ];
+
+//editing the markers and making them appear
+  for ( var i=0; i < markers.length; ++i )
+  {
+   var circle = L.circleMarker( [markers[i].lat, markers[i].lng],{radius: 5, color: "#FFA500", fillOpacity: 1}).bindPopup( '<a href="' + markers[i].website + '" target=" _blank">' + markers[i].name + '</a> <img id="picture" src="' + markers[i].url + ' "> '+ '<p>'+ markers[i].text + '</p>',{minWidth: 450});
+
+    // Highlight the marker on hover
+    circle.on('mouseover', function(){
+     this.setStyle({
+            color: 'red'   //or whatever style you wish to use;
+        });
+
+    });
+
+    // Un-highlight the marker on hover out
+    circle.on('mouseout', function(){
+         this.setStyle({
+            color: "#FFA500"  //or whatever style you wish to use;
+        });
+
+
+    }); 
+
+    circle.addTo( map );
+ }
+
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
