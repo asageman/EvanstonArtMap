@@ -37,10 +37,23 @@
   </style>
 </head>
 <body>
-  <div id="sidebar">
-        <h1>leaflet-sidebar</h1>
-
-        <p>This is the sidebar.</p>
+ <div id="sidebar">
+        <h1>Public Art of Evanston</h1>
+        <p><i>Welcome, thank you for visiting the City of Evanston's interactive map of public of art!</i></p>
+        <p><b>Here are a few things you should know:</b></p>
+        <p><b>How To Use This Map</b></p>
+          <ul>
+            <li>Click on the points to see photos and descriptions of public art pieces.</li>
+            <li>Click on the popup titles to visit websites pertaining to the art pieces.</li>
+          </ul>
+        <p><b>What To Use This Map For</b></p>
+          <ul>
+            <li>Easy, virtual access to Evanston's public art.</li>
+            <li>Tool for identifying and learning about local art.</li>
+            <li>Resource for planning biking or walking tours.</li>
+          </ul>
+        <p><b>About This Map</b></p>
+        <p><font size= "1" color= "gray"><i>This map was created through an Evanston Arts Council initiative to make public art more accessible to the local community and our visitors.  The project was facilitated by the head of the Arts Council Jennifer Lasik, and was carried out by Arts Council intern and geography major Asia Sageman with volunteer consultation from University of Michigan computer programmer Joshua Lustig.  This project will be handed down to future city interns to be updated and improved upon as Evanston's public art collection expands.</i></font></p>
   </div>
 
     <div id="map"></div>
@@ -55,6 +68,70 @@
     {
       attribution: 'Tiles by <a href="https://www.openstreetmap.org/#map=13/42.043261/-87.674259</a>',
 }).addTo(map);
+
+
+//divvy markers
+markers = [
+  {
+    "name": "Divvy Bike Station, Benson & Church",
+    "lat": 42.048347,
+    "lng": -87.683441
+  },
+  {
+    "name": "Divvy Bike Station, Chicago & Washington",
+    "lat": 42.032643,
+    "lng": -87.679157
+  },
+  {
+    "name": "Divvy Bike Station, Austin & Elmwood",
+    "lat": 42.025642,
+    "lng": -87.684129
+  },
+  {
+    "name": "Divvy Bike Station, Valli Produce at Evanston Plaza",
+    "lat": 42.039667,
+    "lng": -87.699323
+  },
+  {
+    "name": "Divvy Bike Station, Church & Dodge",
+    "lat": 42.048279,
+    "lng": -87.698444
+  },
+  {
+    "name": "Divvy Bike Station, Central Street Metra",
+    "lat": 42.063878,
+    "lng": -87.698608,
+  },
+  {
+    "name": "Divvy Bike Station, Central & Girard",
+    "lat": 42.064138,
+    "lng": -87.685973
+  },
+  {
+    "name": "Divvy Bike Station, Chicago & Sheridan",
+    "lat": 42.050462,
+    "lng": -87.677678
+  },
+  {
+    "name": "Divvy Bike Station, Sheridan & Noyes",
+    "lat": 42.058307,
+    "lng": -87.677349
+  },
+  {
+    "name": "Divvy Bike Station, Northwestern Campus Library",
+    "lat": 42.053707,
+    "lng": -87.673100
+  }
+];
+
+for ( var i=0; i < markers.length; ++i )
+  {
+   //L.marker( [markers[i].lat, markers[i].lng] )
+   var circle = L.circleMarker( [markers[i].lat, markers[i].lng],{radius: 9, color: "#BA5373", fillColor: "#BA5373", fillOpacity: .7, opacity: .7})
+    .bindPopup( '<a herf="' + markers[i].url + '" target=" _blank">' + markers[i].name + '</a>' )
+     .addTo( map );
+ }
+//#BA5373
 
 // points
 markers = [
@@ -161,7 +238,7 @@ markers = [
   },
   {
     "name": "Search + Effect",
-    "url": "https://farm5.staticflickr.com/4258/35159494802_8260bca986_o_d.jpg",
+    "url": "https://farm5.staticflickr.com/4309/36068156851_428c01942d_o_d.jpg",
     "lat": 42.047129,
     "lng": -87.683312,
     "website": "http://www.krivanek-breaux.com/index.html",
@@ -242,8 +319,8 @@ markers = [
   {
     "name": "Penny Park",
     "url": "https://farm5.staticflickr.com/4256/34516247533_9d7b838c6f_o_d.jpg",
-    "lat": 42.044179,
-    "lng": -87.694339,
+    "lat": 42.043832,
+    "lng": -87.693830,
     "website": "http://www.hopesandfears.com/hopes/city/architecture/217111-bob-leathers-playgrounds",
     "text": "Evanston is lucky to be home to one of Robert Leathers’ famous playgrounds.  Leathers is an architect who began building wooden playgrounds based off of children’s ideas in the 1970’s.  There are few playgrounds as interesting and magical as these.  One of those few is Evanston’s iconic Penny Park. (1500 Lake Street, Penny Park)",
     "size": "big",
@@ -505,7 +582,7 @@ markers = [
     "lat": 42.058800,
     "lng": -87.725509,
     "website": "http://richardhunt.us/",
-    "text": "Mound is a large metal sculpture shaped like an amorphous beast emerging from the ground.  It was created by the renowned Chicago native Richard Hunt in 1977.  This sloping abstract piece is located in the corner of Prospect Park in Evanston’s 6th ward. (Grant & Prospect)",
+    "text": "Mound is a large metal sculpture shaped like an amorphous beast emerging from the ground.  It was created by the renowned Chicago native Richard Hunt in 1977.  This sloping abstract piece is located in the corner of Cartwright Park in Evanston’s 6th ward. (Grant & Prospect)",
     "size": "big",
     "type": "city"
   },
@@ -761,12 +838,12 @@ markers = [
   },
   {
     "name": "Innocents Guarded by Faithfulness",
-    "url": "https://farm5.staticflickr.com/4197/34938851460_4c79711fff_o_d.jpg",
+    "url": "https://farm5.staticflickr.com/4296/35365549474_e913e7f1e8_o_d.jpg",
     "lat": 42.048621,
     "lng": -87.680303,
     "website": "https://bookbird.wordpress.com/2016/01/07/things-you-didnt-know-about-the-library-8-the-mystery-of-the-statue-beneath-the-stairs/",
-    "text": "It is safe to say that the small marble sculpture by Giovanni Benzoni is the Evanston Public Library’s most intriguing piece of art.  Innocents Guarded by Faithfulness was discovered under the front steps of the 1908 library building during its demolition.  No one knows how this sculpture of a girl and her dog carved in 1868 came to reside in the Evanston Library.  Today it is housed in the Evanstoniana Room on the library’s third floor. (Library 3rd floor)",
-    "size": "small",
+    "text": "It is safe to say that the small marble sculpture by Giovanni Benzoni is the Evanston Public Library’s most intriguing piece of art.  Innocents Guarded by Faithfulness was discovered under the front steps of the 1908 library building during its demolition.  No one knows how this sculpture of a girl and her dog, carved in 1868, came to reside in the Evanston Library.  Today it is housed in the Evanstoniana Room on the library’s third floor. (Library 3rd floor)",
+    "size": "big",
     "type": "city"
   },
   {
@@ -955,7 +1032,7 @@ markers = [
     "lat": 42.053504,
     "lng": -87.673626,
     "website": "http://www.northwestern.edu/",
-    "text": "Here behind Northwestern’s undergraduate library is a beautiful pink granite sculpture.  It is missing an information plaque. (Behind undergraduate library)",
+    "text": "Here behind Northwestern’s undergraduate library is a beautiful pink fossiliferous limestone sculpture.  It is missing an information plaque. (Behind undergraduate library)",
     "size": "big",
     "type": "northwestern"
   },
@@ -1337,7 +1414,7 @@ markers = [
     }
 
 //determining the format of the json markers
-   var circle = L.circleMarker( [markers[i].lat, markers[i].lng],{radius: 6, color: "#FFA500", weight: 2.8, fillColor: 'black', fillOpacity: 1}).bindPopup( '<a href="' + markers[i].website + '" target=" _blank">' + markers[i].name + '</a> <img id="picture" src="' + markers[i].url + ' "> '+ '<p>'+ markers[i].text + '</p>',{minWidth: width});
+   var circle = L.circleMarker( [markers[i].lat, markers[i].lng],{radius: 6, color: "#FFA500", weight: 3.0, fillColor: 'black', fillOpacity: 1}).bindPopup( '<a href="' + markers[i].website + '" target=" _blank">' + markers[i].name + '</a> <img id="picture" src="' + markers[i].url + ' "> '+ '<p>'+ markers[i].text + '</p>',{minWidth: width});
 
     //determining color of type 
     if (markers[i].type == "city"){
@@ -1409,11 +1486,11 @@ markers = [
 */
 //create a polyline square around Evanston from an array of LatLng points
   var latlngs = [
-      [42.068992, -87.729696],
-      [42.068992, -87.665039],
-      [42.016467, -87.665039],
-      [42.016467, -87.729696],
-      [42.068992, -87.729696]
+      [42.069538, -87.729696],
+      [42.069538, -87.665039],
+      [42.017396, -87.665039],
+      [42.017396, -87.729696],
+      [42.069538, -87.729696]
 ];
 
 var polyline = L.polyline(latlngs, {weight: 2, color: "#585858", smoothFactor: 5}).addTo(map);
@@ -1437,9 +1514,10 @@ var legend = L.control({position:'topright'});
 legend.onAdd = function (map) {
   var div = L.DomUtil.create('div', 'info legend');
   div.innerHTML+= "<p><b>Public Art of Evanston</b></p>"; 
-  div.innerHTML+= '<div id="city"> <i style="background:orange"></i> City Owned Art </div>';
-  div.innerHTML+= '<div id="northwestern"> <i style="background:purple"></i> Northwestern Art </div>';
-  div.innerHTML+= '<div id="noncity"> <i style="background:lightblue"></i> Other Public Art </div>';
+  div.innerHTML+= '<div id="city"> <i style="background-color:#FFA500"></i> City Owned Art </div>';
+  div.innerHTML+= '<div id="northwestern"> <i style="background-color:#673AB7"></i> Northwestern Art </div>';
+  div.innerHTML+= '<div id="noncity"> <i style="background-color:#7EDAE5"></i> Other Public Art </div>';
+  div.innerHTML+= '<div id="divvy"> <i style="background-color:#BA5373"></i> Divvy Bike Stations </div>';
   return div; 
 };
 legend.addTo(map);
@@ -1449,7 +1527,6 @@ var sidebar = L.control.sidebar('sidebar', {
       closeButton: true,
       position: 'left'
   });
-//var sidebar = L.control({position: 'left', closeButton: true});
 
 map.addControl(sidebar);
 
