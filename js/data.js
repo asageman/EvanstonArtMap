@@ -53,7 +53,7 @@ var divvy = [
 ];
 
 
-// points
+// art markers
 var markers = [
   {
     "name": "Ten Thousand Ripples",
@@ -132,7 +132,7 @@ var markers = [
     "lat": 42.045107,
     "lng": -87.673866,
     "website": "https://en.wikipedia.org/wiki/Thomas_Tallmadge",
-    "text": "In 1929 two men collaborated to create the Evanston war memorial: Patriots Park Flagpole.  They were Thomas E. Tallmadge, a renowned Evanston raised architect known for coining the term “Chicago School” in reference to Chicago’s iconic architectural style, and Stephen Beams an Indian born British artist living in America.  Beams used Tallmadge’s design to construct the base of the flagpole which memorializes soldiers in the Revolutionary War, the Civil War, the Spanish American War, and World War I. (Davis & Sheridan, Patriots Park)",
+    "text": "In 1929 two men collaborated to create the Evanston war memorial: Patriots Park Flagpole.  They were Thomas E. Tallmadge, a renowned Evanston raised architect known for coining the term “Chicago School” in reference to the iconic architectural style, and Stephen Beams an Indian born British artist living in America.  Beams used Tallmadge’s design to construct the base of the flagpole which memorializes soldiers in the Revolutionary War, the Civil War, the Spanish American War, and World War I. (Davis & Sheridan, Patriots Park)",
     "size": "small",
     "type": "city"
   },
@@ -192,7 +192,7 @@ var markers = [
     "lat": 42.058731,
     "lng": -87.684771,
     "website": "http://staczalipinski.blogspot.com/2011/11/zaftig-acrylic-on-vellum-2005-noyes.html",
-    "text": "Zaftig by Stacza Lipinski is a unique piece consisting of a mass of intricately cut pieces of vellum drawn on with acrylic and graphite.  Installed in 2005, the pieces snake down the wall of the Noyes Cultural Art Center’s south west stairwell like vines down a cliff face. (927 Noyes Street, Noyes Cultural Arts Center)",
+    "text": "Zaftig by Stacza Lipinski is a unique piece consisting of a mass of intricately cut pieces of vellum drawn on with acrylic and graphite.  Installed in 2005, the piece snakes down the south west stairwell of the Noyes Cultural Art Center like vines down a cliff face. (927 Noyes Street, Noyes Cultural Arts Center)",
     "size": "big",
     "type": "city"
   },
@@ -262,7 +262,7 @@ var markers = [
     "lat": 42.033940,
     "lng": -87.680023,
     "website": "http://sonataka.com/public-art/",
-    "text": "Art Opens Horizons: Nature, Culture, Diversity was a collaborative multimedia mural project that was designed and facilitated by the artist Sonata Kazimieraitiene in partnership with Evanston’s Open Studio Project.  The purpose of the project was to create a beautiful permanent piece of art that provided an opportunity for community members to be involved in the creative process. (West-facing CTA retaining wall on south side of Main St.)",
+    "text": "Art Opens Horizons: Nature, Culture, Diversity was a collaborative multimedia mural project that was designed and facilitated by the artist Sonata Kazimieraitiene in partnership with the Evanston based Open Studio Project.  The purpose of the project was to create a beautiful permanent piece of art that provided an opportunity for community members to be involved in the creative process. (West-facing CTA retaining wall on south side of Main St.)",
     "size": "big",
     "type": "city"
   },
@@ -282,7 +282,7 @@ var markers = [
     "lat": 42.043609,
     "lng": -87.687106,
     "website": "https://archive.org/details/FountainsGroundBasinsAndBasinRimsTheJ.l.MottIronWorks...NewYork",
-    "text": "The Centennial Fountain located in Evanston’s Merrick Rose Garden was made in 1912 by the J.L. Mott Ironworks company.  The J.L. Mott Ironworks company specialized in items like stoves, kettles, pipes, benches, and of course fountains.  This particular fountain originally resided in Evanston’s Fountain Square but later retired to the quiet of the rose garden. (Lake Street & Oak Street, Merrick Rose Garden)",
+    "text": "The Centennial Fountain located in the Merrick Rose Garden was made in 1912 by the J.L. Mott Ironworks company.  The J.L. Mott Ironworks company specialized in items like stoves, kettles, pipes, benches, and of course fountains.  This particular fountain originally resided in Fountain Square but later retired to the quiet of the rose garden. (Lake Street & Oak Street, Merrick Rose Garden)",
     "size": "small",
     "type": "city"
   },
@@ -312,7 +312,7 @@ var markers = [
     "lat": 42.056448,
     "lng": -87.687132,
     "website": "https://www.cityofevanston.org/about-evanston/arts-and-culture",
-    "text": "This series of enlarged photos on the fourth floor of the Civic Center depict Evanston’s Fountain Square at different stages of Evanston history.  The series begins with a photo of folks in buggies surrounding Centennial Fountain and ends with cars parked on the streets of the plaza. (2100 Ridge Avenue, Civic Center)",
+    "text": "This series of enlarged photos on the fourth floor of the Civic Center depict Fountain Square at different stages of Evanston history.  The series begins with a photo of folks in buggies surrounding Centennial Fountain and ends with cars parked on the streets of the plaza. (2100 Ridge Avenue, Civic Center)",
     "size": "big",
     "type": "city"
   },
@@ -342,7 +342,7 @@ var markers = [
     "lat": 42.056475,
     "lng": -87.687466,
     "website": "http://www.jillkingstudio.com/front-page-2/sculptures-and-public-art/",
-    "text": "The organic blue sculpture suspended in the stairwell of Evanston’s Civic Center is rightly called Evanston Odyssey.  Spanning four flights of stairs, this work created by the artist Jill King-Wynn, takes us on a journey as we ascend the Civic Center steps.  The piece, made of twisted wire, opaque fabric, and electric blue lights is reminiscent of a cosmic cloud.",
+    "text": "The organic blue sculpture suspended in the stairwell of the Evanston Civic Center is rightly called Evanston Odyssey.  Spanning four flights of stairs, this work created by the artist Jill King-Wynn, takes us on a journey as we ascend the Civic Center steps.  The piece, made of twisted wire, opaque fabric, and electric blue lights is reminiscent of a cosmic cloud.",
     "size": "big",
     "type": "city"
   },
@@ -491,8 +491,8 @@ var markers = [
     "url": "https://farm5.staticflickr.com/4243/35326455745_5fc61bcace_o_d.png",
     "lat": 42.064367,
     "lng": -87.714033,
-    "website": "http://www.cityofevanston.org/arts-culture/public-art/",
-    "text": "Emitting Waves is a permanent installation of colored glass and light made to look like an undulating wave moving across the upper windows of Evanston’s Fire Station number 5.  This piece by Robert Smart was installed in 2008 when the fire station was rebuilt as a state-of-the-art sustainable structure. (2830 Central Street, Fire Station 5)",
+    "website": "https://www.cityofevanston.org/about-evanston/arts-and-culture",
+    "text": "Emitting Waves is a permanent installation of colored glass and light made to look like an undulating wave moving across the upper windows of Fire Station number 5.  This piece by Robert Smart was installed in 2008 when the fire station was rebuilt as a state-of-the-art sustainable structure. (2830 Central Street, Fire Station 5)",
     "size": "big",
     "type": "city"
   },
@@ -502,7 +502,7 @@ var markers = [
     "lat": 42.058800,
     "lng": -87.725509,
     "website": "http://richardhunt.us/",
-    "text": "Mound is a large metal sculpture shaped like an amorphous beast emerging from the ground.  It was created by the renowned Chicago native Richard Hunt in 1977.  This sloping abstract piece is located in the corner of Cartwright Park in Evanston’s 6th ward. (Grant & Prospect)",
+    "text": "Mound is a large metal sculpture shaped like an amorphous beast emerging from the ground.  It was created by the renowned Chicago native Richard Hunt in 1977.  This sloping abstract piece is located in the corner of Cartwright Park in the 6th ward of Evanston. (Grant & Prospect)",
     "size": "big",
     "type": "city"
   },
@@ -512,7 +512,7 @@ var markers = [
     "lat": 42.064382,
     "lng": -87.686165,
     "website": "http://adelheidmers.org/exelon/Mers_McGee-bios.pdf",
-    "text": "The Firefighters mural on the outside wall of Evanston’s Fire Station number 3 was created by the Chicago based artists Adelheid Mers and Patrick McGee in 2005.  The piece consists of panels of perforated aluminum that from certain angles reveal ghostly images of brave firefighters at work. (1105 Central Street, Fire Station #3)",
+    "text": "The Firefighters mural on the outside wall of Evanston's Fire Station number 3 was created by the Chicago based artists Adelheid Mers and Patrick McGee in 2005.  The piece consists of panels of perforated aluminum that from certain angles reveal ghostly images of brave firefighters at work. (1105 Central Street, Fire Station #3)",
     "size": "big",
     "type": "city"
   },
@@ -1062,7 +1062,7 @@ var markers = [
     "lat": 42.061297,
     "lng": -87.676871,
     "website": "https://en.wikipedia.org/wiki/Patten_Gymnasium",
-    "text": "The statues titled Physical Development and Intellectual Development (the former shown above) were first displayed at Northwestern University’s Patten Gymnasium in 1916.  The statues were created by the American artist Hermon Atkins McNeil who is best known for designing the “Liberty Quarter”, which was minted between 1916 and 1930. McNeil’s Patten Gym statues have been affectionately nicknamed “Pat and Jim” by university students.  (Patten Gymnasium, Northwestern University)",
+    "text": "The statues titled Physical Development and Intellectual Development (the former shown above) were first displayed at Northwestern University's Patten Gymnasium in 1916.  The statues were created by the American artist Hermon Atkins McNeil who is best known for designing the Liberty Quarter, which was minted between 1916 and 1930. McNeil's Patten Gym statues have been affectionately nicknamed Pat and Jim by university students.  (Patten Gymnasium, Northwestern University)",
     "size": "big",
     "type": "northwestern"
   },

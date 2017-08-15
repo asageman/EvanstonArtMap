@@ -1,150 +1,60 @@
-<html>
-<head>
-  <title>A Leaflet map!</title>
-  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
-  <link rel="stylesheet" href="css/leaflet-sidebar.css"/>
-  <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-  <script src="js/leaflet-sidebar.js"></script>
-
-  <style>
-    #map{ height: 100% }
-    #picture { width: 100% }
-  .info { 
-    padding: 10px 10px; 
-    font: 14px/16px Arial, Helvetica, sans-serif; 
-    background: white; 
-    background: rgba(255,255,255,0.8); 
-    box-shadow: 0 0 15px rgba(0,0,0,0.6); 
-    border-radius: 8px; 
-  } 
-  .info h4 { 
-    margin: 0 0 5px; 
-    color: #777; 
-  }
-  .legend { 
-    text-align: left; 
-    line-height: 20px; 
-    color: #555; 
-  } 
-  .legend i {
-      width: 16px;
-      height: 16px;
-      float: left;
-      margin-right: 8px;
-      opacity: 0.8;
-  }
-
-  </style>
-</head>
-<body>
-  <div id="sidebar">
-        <h1>Public Art of Evanston</h1>
-        <p><i>Welcome, thank you for visiting the City of Evanston's interactive map of public of art!</i></p>
-        <p><b>Here are a few things you should know:</b></p>
-        <p><b>How To Use This Map</b></p>
-          <ul>
-            <li>Click on the points to see photos and descriptions of public art pieces.</li>
-            <li>Click on the popup titles to visit websites pertaining to the art pieces.</li>
-          </ul>
-        <p><b>What To Use This Map For</b></p>
-          <ul>
-            <li>Easy, virtual access to Evanston's public art.</li>
-            <li>Tool for identifying and learning about local art.</li>
-            <li>Resource for planning biking or walking tours.</li>
-          </ul>
-        <p><b>About This Map</b></p>
-        <p><font size= "1" color= "gray"><i>This map was created through an Evanston Arts Council initiative to make public art more accessible to the local community and our visitors.  The project was facilitated by the head of the Arts Council Jennifer Lasik, and was carried out by Arts Council intern and geography major Asia Sageman with volunteer consultation from University of Michigan computer programmer Joshua Lustig.  This project will be handed down to future city interns to be updated and improved upon as Evanston's public art collection expands.</i></font></p>
-  </div>
-
-    <div id="map"></div>
-
-<script>
-
-  // initialize the map
-  var map = L.map('map').setView([42.043261, -87.674259], 13);
-
-  // load a tile layer
-  L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-    {
-      attribution: 'Tiles by <a href="https://www.openstreetmap.org/#map=13/42.043261/-87.674259</a>',
-}).addTo(map);
-
-
 //divvy markers
-markers = [
+var divvy = [
   {
     "name": "Divvy Bike Station, Benson & Church",
     "lat": 42.048347,
-    "lng": -87.683441,
-    "type": "divvy"
+    "lng": -87.683441
   },
   {
     "name": "Divvy Bike Station, Chicago & Washington",
     "lat": 42.032643,
-    "lng": -87.679157,
-    "type": "divvy"
+    "lng": -87.679157
   },
   {
     "name": "Divvy Bike Station, Austin & Elmwood",
     "lat": 42.025642,
-    "lng": -87.684129,
-    "type": "divvy"
+    "lng": -87.684129
   },
   {
     "name": "Divvy Bike Station, Valli Produce at Evanston Plaza",
     "lat": 42.039667,
-    "lng": -87.699323,
-    "type": "divvy"
+    "lng": -87.699323
   },
   {
     "name": "Divvy Bike Station, Church & Dodge",
     "lat": 42.048279,
-    "lng": -87.698444,
-    "type": "divvy"
+    "lng": -87.698444
   },
   {
     "name": "Divvy Bike Station, Central Street Metra",
     "lat": 42.063878,
     "lng": -87.698608,
-    "type": "divvy"
   },
   {
     "name": "Divvy Bike Station, Central & Girard",
     "lat": 42.064138,
-    "lng": -87.685973,
-    "type": "divvy"
+    "lng": -87.685973
   },
   {
     "name": "Divvy Bike Station, Chicago & Sheridan",
     "lat": 42.050462,
-    "lng": -87.677678,
-    "type": "divvy"
+    "lng": -87.677678
   },
   {
     "name": "Divvy Bike Station, Sheridan & Noyes",
     "lat": 42.058307,
-    "lng": -87.677349,
-    "type": "divvy"
+    "lng": -87.677349
   },
   {
     "name": "Divvy Bike Station, Northwestern Campus Library",
     "lat": 42.053707,
-    "lng": -87.673100,
-    "type": "divvy"
+    "lng": -87.673100
   }
 ];
 
-//formatting divvy markers
-for ( var i=0; i < markers.length; ++i )
-  {
-   var circle = L.circleMarker( [markers[i].lat, markers[i].lng],{radius: 9, color: "#BA5373", fillColor: "#BA5373", fillOpacity: .7, opacity: .7})
-    .bindPopup( '<a herf="' + markers[i].url + '" target=" _blank">' + markers[i].name + '</a>' )
-     .addTo( map );
- }
-
 
 // points
-markers = [
+var markers = [
   {
     "name": "Ten Thousand Ripples",
     "url": "https://farm5.staticflickr.com/4289/35196531481_ca6ec8cf86_o_d.jpg",
@@ -419,8 +329,8 @@ markers = [
   {
     "name": "Map and Photos of Evanston History",
     "url": "https://farm5.staticflickr.com/4252/35159661642_0c673c34ea_o_d.jpg",
-    "lat": 42.056320,
-    "lng": -87.687273,
+    "lat": 42.056634,
+    "lng": -87.687046,
     "website": "https://www.cityofevanston.org/about-evanston/arts-and-culture",
     "text": "This piece is a collection of historic photos of Evanston arranged into two squares creating a grid-like pattern of negative space between the photos.  The work is by Charles A. Wightman. (2100 Ridge Avenue, Civic Center)",
     "size": "small",
@@ -449,8 +359,8 @@ markers = [
   {
     "name": "Fireman",
     "url": "https://farm5.staticflickr.com/4290/35286555516_241820b852_o_d.jpg",
-    "lat": 42.056848,
-    "lng": -87.687013,
+    "lat": 42.056744,
+    "lng": -87.686964,
     "website": "http://halsteadportraits.com/about-the-artist/",
     "text": "The painting Fireman was made by the portrait artist Richard Halstead who has had works in such prestigious locations as the National Portrait Gallery.  Fireman is located on the second floor of the Civic Center. (2100 Ridge Avenue, Civic Center)",
     "size": "small",
@@ -469,8 +379,8 @@ markers = [
   {
     "name": "Forestry Worker",
     "url": "https://farm5.staticflickr.com/4200/35159659442_50e1976c84_o_d.jpg",
-    "lat": 42.056927,
-    "lng": -87.687191,
+    "lat": 42.056722,
+    "lng": -87.686976,
     "website": "http://halsteadportraits.com/about-the-artist/",
     "text": "The painting Forestry Worker was made by the portrait artist Richard Halstead who has had works in such prestigious locations as the National Portrait Gallery.  Forestry Worker is located on the second floor of the Civic Center. (2100 Ridge Avenue, Civic Center)",
     "size": "small",
@@ -499,8 +409,8 @@ markers = [
   {
     "name": "Bicentennial Lighthouse Tapestry",
     "url": "https://farm5.staticflickr.com/4227/35159658902_a433098f17_o_d.jpg",
-    "lat": 42.056411,
-    "lng": -87.687717,
+    "lat": 42.057143,
+    "lng": -87.687075,
     "website": "https://www.cityofevanston.org/about-evanston/arts-and-culture",
     "text": "This quaint Americana tapestry was sewn in 1976 by Hal E. Davis in celebration of America’s bicentennial anniversary.  The lovely squares depict classic Evanston landmarks and claims to fame such as the iconic lighthouse, Centennial Fountain, and the Ice Cream Sunday. (2100 Ridge Avenue, Civic Center)",
     "size": "small",
@@ -581,7 +491,7 @@ markers = [
     "url": "https://farm5.staticflickr.com/4243/35326455745_5fc61bcace_o_d.png",
     "lat": 42.064367,
     "lng": -87.714033,
-    "website": "http://www.cityofevanston.org/arts-culture/public-art/",
+    "website": "https://www.cityofevanston.org/about-evanston/arts-and-culture",
     "text": "Emitting Waves is a permanent installation of colored glass and light made to look like an undulating wave moving across the upper windows of Evanston’s Fire Station number 5.  This piece by Robert Smart was installed in 2008 when the fire station was rebuilt as a state-of-the-art sustainable structure. (2830 Central Street, Fire Station 5)",
     "size": "big",
     "type": "city"
@@ -592,7 +502,7 @@ markers = [
     "lat": 42.058800,
     "lng": -87.725509,
     "website": "http://richardhunt.us/",
-    "text": "Mound is a large metal sculpture shaped like an amorphous beast emerging from the ground.  It was created by the renowned Chicago native Richard Hunt in 1977.  This sloping abstract piece is located in the corner of Cartwright Park in Evanston’s 6th ward. (Grant & Prospect)",
+    "text": "Mound is a large metal sculpture shaped like an amorphous beast emerging from the ground.  It was created by the renowned Chicago native Richard Hunt in 1977.  This sloping abstract piece is located in the corner of Cartwright Park in Evanston's 6th ward. (Grant & Prospect)",
     "size": "big",
     "type": "city"
   },
@@ -688,7 +598,7 @@ markers = [
   },
   {
     "name": "Levy Family Portrait",
-    "url": "https://farm5.staticflickr.com/4279/34482952044_0899cb407a_o_d.jpg",
+    "url": "https://www.flickr.com/photos/146266332@N05/34482952044/sizes/l",
     "lat": 42.023318,
     "lng": -87.699701,
     "website": "https://www.cityofevanston.org/about-evanston/arts-and-culture",
@@ -779,8 +689,8 @@ markers = [
   {
     "name": "Untitled sculpture",
     "url": "https://farm5.staticflickr.com/4225/35159576972_ba45866a44_o_d.jpg",
-    "lat": 42.048278,
-    "lng": -87.679682,
+    "lat": 42.048134,
+    "lng": -87.679799,
     "website": "http://gapersblock.com/ac/2010/01/18/sculptor-bill-boyce-on-chicagoarts/",
     "text": "This untitled metal piece made of found objects is by the artist Bill Boyce who shows his metal work throughout Chicago and the surrounding areas. (Library 3rd floor)",
     "size": "small",
@@ -1407,151 +1317,3 @@ markers = [
     "type": "noncity"
   }
 ];
-
-/*
-*THIS PART CREATES YOUR POINTS
-*/
-//determining size of photo 
-  for ( var i=0; i < markers.length; ++i){
-
-    var width = 350; 
-    if (markers[i].size == "big"){
-        width = 520; 
-    }
-
-    else if (markers[i].size == "small"){
-        width = 100; 
-    }
-
-//determining the format of the json markers
-   var circle = L.circleMarker( [markers[i].lat, markers[i].lng],{radius: 6, color: "#FFA500", weight: 2.8, fillColor: 'black', fillOpacity: 1}).bindPopup( '<a href="' + markers[i].website + '" target=" _blank">' + markers[i].name + '</a> <img id="picture" src="' + markers[i].url + ' "> '+ '<p>'+ markers[i].text + '</p>',{minWidth: width});
-
-    //determining color of type 
-    if (markers[i].type == "city"){
-      circle.options.color = "#FFA500"; 
-    }
-
-    else if (markers[i].type == "northwestern"){
-      circle.options.color = "#8258FA";
-    }
-
-    else if (markers[i].type == "noncity"){
-        circle.options.color = "#81F7F3";
-    }
-
-
- //determining the passover highlight feature and color 
-    if (markers[i].type == "northwestern"){
-      //Highlight the marker on hover
-      circle.on('mouseover', function(e){
-       this.setStyle({
-              fillColor: "#8258FA"
-          });
-      });
-      //Un-highlight the marker on hover out
-      circle.on('mouseout', function(){
-           this.setStyle({
-              fillColor: 'black' 
-          });
-      });
-    }
-
-    else if (markers[i].type == "city"){ 
-     //Highlight the marker on hover
-      circle.on('mouseover', function(){
-       this.setStyle({
-              fillColor: "#FFA500"
-          });
-      });
-
-      //Un-highlight the marker on hover out
-      circle.on('mouseout', function(){
-           this.setStyle({
-              fillColor: 'black' 
-          });
-      });
-    } 
-
-    else if (markers[i].type == "noncity"){ 
-     //Highlight the marker on hover
-      circle.on('mouseover', function(){
-       this.setStyle({
-              fillColor: "#81F7F3"
-          });
-      });
-      //Un-highlight the marker on hover out
-      circle.on('mouseout', function(){
-           this.setStyle({
-              fillColor: 'black' 
-          });
-      });
-    } 
-
-    circle.addTo(map);
- } //end for loop
-
-/*
-*THIS PART CREATES YOUR SQUARE
-*/
-//create a polyline square around Evanston from an array of LatLng points
-  var latlngs = [
-      [42.069538, -87.729696],
-      [42.069538, -87.665039],
-      [42.017396, -87.665039],
-      [42.017396, -87.729696],
-      [42.069538, -87.729696]
-];
-
-var polyline = L.polyline(latlngs, {weight: 2, color: "#585858", smoothFactor: 5}).addTo(map);
-  
-//zoom the map to the polyline
-map.fitBounds(polyline.getBounds());
-
-/*
-map.on('popupopen', function(e) {
-    var px = map.project(e.popup._latlng); // find the pixel location on the map where the popup anchor is
-    px.y -= e.popup._container.clientHeight/2 // find the height of the popup container, divide by 2, subtract from the Y axis of marker location
-    map.panTo(map.unproject(px),{animate: true}); // pan to new center
-});
-/*
-
-/*
-*THIS PART CREATES YOUR LEGEND
-*/
-//Declare the functions
-var legend = L.control({position:'topright'}); 
-legend.onAdd = function (map) {
-  var div = L.DomUtil.create('div', 'info legend');
-  div.innerHTML+= "<p><b>Public Art of Evanston</b></p>"; 
-  div.innerHTML+= '<div id="city"> <i style="background-color:#FFA500"></i> City Owned Art </div>';
-  div.innerHTML+= '<div id="northwestern"> <i style="background-color:#673AB7"></i> Northwestern Art </div>';
-  div.innerHTML+= '<div id="noncity"> <i style="background-color:#7EDAE5"></i> Other Public Art </div>';
-  div.innerHTML+= '<div id="divvy"> <i style="background-color:#BA5373"></i> Divvy Bike Stations </div>';
-  return div; 
-};
-legend.addTo(map);
-
-//Making a sidebar
-var sidebar = L.control.sidebar('sidebar', {
-      closeButton: true,
-      position: 'left'
-  });
-
-map.addControl(sidebar);
-
-setTimeout(function () 
-  {sidebar.show();}, 500);
-
-
-</script>
-</body>
-</html>
-
-
-
-
-
-
-
-
-
