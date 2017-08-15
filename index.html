@@ -7,6 +7,8 @@
   <script src="js/leaflet.js"></script>
   <script src="js/leaflet-sidebar.js"></script>
   <script src="js/data.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
   <style></style>
 </head>
 <body>
@@ -44,6 +46,7 @@
   }).addTo(map);
 
 
+  AllPoints = []
   //determining the format of the divvy markers
   for ( var i=0; i < divvy.length; ++i )
     {
@@ -127,6 +130,7 @@
   } 
 
     circle.addTo(map);
+    AllPoints.push(circle);
  } //end for loop
 
 /*
@@ -158,6 +162,7 @@ legend.onAdd = function (map) {
   div.innerHTML+= '<div id="northwestern"> <i style="background-color:#673AB7"></i> Northwestern Art </div>';
   div.innerHTML+= '<div id="noncity"> <i style="background-color:#7EDAE5"></i> Other Public Art </div>';
   div.innerHTML+= '<div id="divvy"> <i style="background-color:#BA5373"></i> Divvy Bike Stations </div>';
+  div.innerHTML+= '<div id="divvy" onclick="toggle(1)" style="cursor: pointer;"> <i style="background-color:blue"></i> Toggle Bike Route</div>';
   return div; 
 };
 legend.addTo(map);
@@ -172,6 +177,73 @@ var sidebar = L.control.sidebar('sidebar', {
 map.addControl(sidebar);
 setTimeout(function () 
   {sidebar.show();}, 500);
+
+var district_boundary = new L.geoJson();
+district_boundary.addTo(map);
+
+var myStyle = {
+    "lineCap": "inherit",
+    "lineJoin":"miter",
+    "color": "blue",
+    "weight": 4,
+    "opacity": 0.45
+};
+
+$.ajax({
+dataType: "json",
+url: "data/evanston.geojson",
+success: function(data) {
+    $(data.features).each(function(key, data) {
+        district_boundary.addData(data);
+    });
+    district_boundary.setStyle(myStyle);
+    district_boundary.bringToBack();
+}
+});
+
+
+  //Enables user to toggle Routes on or off by changing opacity of the line
+function toggle(input){ 
+
+    var origStyle = {
+        "lineCap": "inherit",
+        "lineJoin":"miter",
+        "color": "blue",
+        "weight": 4,
+        "opacity": 0.45
+    };
+    var newStyle = {
+        "lineCap": "inherit",
+        "lineJoin":"miter",
+        "color": "blue",
+        "weight": 4,
+        "opacity": 0
+    };
+
+    for (var property in district_boundary._layers){
+
+      console.log(district_boundary._layers[property]);
+
+      if(district_boundary._layers[property].options.opacity == 0){
+        district_boundary.setStyle(origStyle);
+      }
+      else{
+        district_boundary.setStyle(newStyle);
+      }
+      break;
+    }
+
+    // for (var i=0; i < AllPoints.length; ++i){
+    //    if (AllPoints[i].options.color == input && AllPoints[i].options.opacity == 0){
+    //       AllPoints[i].setStyle({opacity:1});
+    //       console.log("hello");
+    //    }
+    //   else{ 
+    //     AllPoints[i].setStyle({opacity:0});
+    //   }
+    // }
+}
+
 
 </script>
 </body>
