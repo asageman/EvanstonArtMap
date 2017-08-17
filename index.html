@@ -18,8 +18,9 @@
         <p><b>Here are a few things you should know:</b></p>
         <p><b>How To Use This Map</b></p>
           <ul>
-            <li>Click on the points to see photos and descriptions of public art pieces.</li>
-            <li>Click on the popup titles to visit websites pertaining to the art pieces.</li>
+            <li>Click points to see photos and descriptions.</li>
+            <li>Click popup titles to visit websites.</li>
+            <li>Turn bike route off and on by clicking it in the legend.</li>
           </ul>
         <p><b>What To Use This Map For</b></p>
           <ul>
@@ -51,10 +52,11 @@
   for ( var i=0; i < divvy.length; ++i )
     {
      //L.marker( [markers[i].lat, markers[i].lng] )
-     var circle = L.circleMarker( [divvy[i].lat, divvy[i].lng],{radius: 9, color: "#BA5373", fillColor: "#BA5373", fillOpacity: .7, opacity: .7})
+     var circle = L.circleMarker( [divvy[i].lat, divvy[i].lng],{radius: 9, color: "#B34E7E", fillColor: "#B34E7E", fillOpacity: .7, opacity: .7})
       .bindPopup( '<a herf="' + divvy[i].url + '" target=" _blank">' + divvy[i].name + '</a>' )
        .addTo( map );
    }
+   //#BA5373
 
   //determining size of photo 
   for ( var i=0; i < markers.length; ++i){
@@ -92,6 +94,7 @@
             fillColor: "#8258FA"
         });
     });
+
     //Un-highlight the marker on hover out
     circle.on('mouseout', function(){
          this.setStyle({
@@ -121,6 +124,7 @@
             fillColor: "#81F7F3"
         });
     });
+
     //Un-highlight the marker on hover out
     circle.on('mouseout', function(){
          this.setStyle({
@@ -161,11 +165,12 @@ legend.onAdd = function (map) {
   div.innerHTML+= '<div id="city"> <i style="background-color:#FFA500"></i> City Owned Art </div>';
   div.innerHTML+= '<div id="northwestern"> <i style="background-color:#673AB7"></i> Northwestern Art </div>';
   div.innerHTML+= '<div id="noncity"> <i style="background-color:#7EDAE5"></i> Other Public Art </div>';
-  div.innerHTML+= '<div id="divvy"> <i style="background-color:#BA5373"></i> Divvy Bike Stations </div>';
-  div.innerHTML+= '<div id="divvy" onclick="toggle(1)" style="cursor: pointer;"> <i style="background-color:blue"></i> Toggle Bike Route</div>';
+  div.innerHTML+= '<div id="divvy" onclick="toggle(1)" style="cursor: pointer;"> <i style="background-color:#1156BA"></i> Bike Route </div>';
+  div.innerHTML+= '<div id="divvy"> <i style="background-color:#B34E7E"></i> Divvy Bike Stations </div>';
   return div; 
 };
 legend.addTo(map);
+//#CB3C0A
 
 /*
 *THIS PART CREATES YOUR SIDEBAR
@@ -184,10 +189,11 @@ district_boundary.addTo(map);
 var myStyle = {
     "lineCap": "inherit",
     "lineJoin":"miter",
-    "color": "blue",
+    "color": "#02337B",
     "weight": 4,
     "opacity": 0.45
 };
+//#8C0101
 
 $.ajax({
 dataType: "json",
@@ -208,14 +214,14 @@ function toggle(input){
     var origStyle = {
         "lineCap": "inherit",
         "lineJoin":"miter",
-        "color": "blue",
+        "color": "#02337B",
         "weight": 4,
         "opacity": 0.45
     };
     var newStyle = {
         "lineCap": "inherit",
         "lineJoin":"miter",
-        "color": "blue",
+        "color": "#02337B",
         "weight": 4,
         "opacity": 0
     };
